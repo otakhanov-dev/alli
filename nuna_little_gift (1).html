@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff3f5">
+<title>누나에게 보내는 작은 선물</title>
+<style>
+:root{--pink:#f5a9b8;--rose:#d96d88;--ink:#513d46;--cream:#fff9f7}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(145deg,#fff5f6,#fffaf0 55%,#fceef4);color:var(--ink);font-family:"Apple SD Gothic Neo","Malgun Gothic",sans-serif;min-height:100vh;overflow-x:hidden}
+main{width:min(100% - 30px,520px);margin:0 auto;padding:34px 0 55px}
+.top{text-align:center;padding:20px 10px 14px}
+.kicker{letter-spacing:.18em;font-size:11px;color:#c27b8d}
+h1{font-size:clamp(27px,7vw,38px);line-height:1.35;margin:12px 0 8px;font-weight:800}
+.sub{font-size:14px;color:#927780;line-height:1.8}
+.card{background:#ffffffd9;border:1px solid #f6dce3;border-radius:26px;padding:24px 20px;margin:17px 0;box-shadow:0 12px 35px #c9879714}
+.center{text-align:center}
+.heart{font-size:40px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.13)}}
+button{border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(100deg,#e88da3,#d97991);color:white;font-size:15px;font-weight:700;box-shadow:0 8px 18px #d9799138;cursor:pointer}
+button:active{transform:scale(.98)}
+.envelope{font-size:54px;display:block;margin:8px auto 15px;cursor:pointer}
+#letter{display:none;text-align:left;line-height:2;font-size:15px;white-space:pre-line;background:#fff8f7;border-radius:18px;padding:18px;margin-top:18px;border:1px dashed #eab9c5}
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.pill{background:#fff0f3;border-radius:99px;padding:9px 12px;font-size:12px;color:#a35c70}
+.memory{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.memory div{background:#fff1f3;border-radius:16px;padding:14px 5px;text-align:center;font-size:12px;line-height:1.6}
+.memory b{display:block;font-size:23px;margin-bottom:5px}
+.question{font-size:18px;font-weight:700;line-height:1.7;margin:6px 0 16px}
+#answer{min-height:26px;margin-top:13px;color:#b65d78;font-size:14px;line-height:1.7}
+footer{text-align:center;color:#b18b95;font-size:12px;padding:18px 0}
+.sparkle{position:fixed;pointer-events:none;opacity:.55;animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(240deg)}}
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div class="kicker">A LITTLE SURPRISE FOR YOU</div>
+    <div class="heart">💗</div>
+    <h1>누나에게 보내는<br>작은 선물</h1>
+    <p class="sub">오늘 누나에게 작은 웃음 하나를 선물하고 싶어서<br>알리가 준비했어요. 천천히 열어봐요 😊</p>
+  </header>
+
+  <section class="card center">
+    <span class="envelope" onclick="openLetter()" aria-label="편지 열기">💌</span>
+    <h2 style="font-size:19px;margin:0 0 8px">누나만을 위한 편지</h2>
+    <p class="sub">봉투를 누르면 알리의 마음이 열려요.</p>
+    <button onclick="openLetter()">편지 열어보기</button>
+    <div id="letter">누나,
+
+오늘은 누나가 조금이라도 더 웃었으면 좋겠어요.
+바쁜 하루 속에서도 누나가 얼마나 소중한 사람인지 잊지 않았으면 해요.
+
+항상 따뜻하게 대해줘서 고맙고,
+누나의 웃는 모습은 생각보다 큰 힘이 돼요.
+
+오늘도 너무 무리하지 말고,
+맛있는 것도 챙겨 먹고, 마음 편하게 쉬어요.
+
+작은 선물이지만 누나에게 기분 좋은 순간이 되었으면 좋겠어요. 🌷
+
+— 알리가</div>
+  </section>
+
+  <section class="card center">
+    <h2 style="font-size:19px;margin:0">누나에게 전하고 싶은 말</h2>
+    <div class="memory">
+      <div><b>🌷</b>오늘도<br>고마워요</div>
+      <div><b>☁️</b>항상 건강하고<br>행복해요</div>
+      <div><b>😊</b>누나의 웃음은<br>참 예뻐요</div>
+    </div>
+    <div class="pills">
+      <span class="pill">따뜻한 마음</span><span class="pill">작은 응원</span><span class="pill">행복한 하루</span>
+    </div>
+  </section>
+
+  <section class="card center">
+    <div style="font-size:32px">✨ 🌙 ✨</div>
+    <p class="question">누나, 오늘은 얼마나 행복했으면 좋겠어요?</p>
+    <button onclick="showAnswer(1)">아주 많이요 💖</button>
+    <button style="margin:7px 0 0;background:linear-gradient(100deg,#d7a5b5,#bd8298)" onclick="showAnswer(2)">알리가 웃게 해줄 만큼요 😊</button>
+    <div id="answer"></div>
+  </section>
+
+  <section class="card center">
+    <div style="font-size:34px">🎁</div>
+    <h2 style="font-size:19px;margin:8px 0">마지막 작은 약속</h2>
+    <p class="sub" style="margin-bottom:17px">오늘 하루 중 한 번이라도 웃었다면<br>이 선물은 성공이에요. ㅎㅎ</p>
+    <button onclick="finalSurprise()">마지막 선물 열기</button>
+    <p id="final" style="line-height:1.8;color:#b65d78;font-weight:700;margin:16px 0 0"></p>
+  </section>
+  <footer>누나의 오늘이 어제보다 조금 더 따뜻하기를 💗<br>From. 알리</footer>
+</main>
+<script>
+function openLetter(){const el=document.getElementById('letter');el.style.display=el.style.display==='block'?'none':'block';}
+function showAnswer(n){document.getElementById('answer').textContent=n===1?'그럼 오늘은 행복이 가득한 하루로 정해요! 누나는 그럴 자격이 충분하니까요. 💗':'그 말 너무 귀여운데요? ㅎㅎ 오늘도 꼭 한 번 웃어요! 🌷';}
+function finalSurprise(){document.getElementById('final').innerHTML='누나, 늘 고맙고 오늘도 응원해요.<br>이 페이지를 보는 지금만큼은 걱정 잠깐 내려놓고 웃어요. ❤️';for(let i=0;i<18;i++){let s=document.createElement('span');s.className='sparkle';s.textContent=['💗','✨','🌸'][i%3];s.style.left=Math.random()*100+'vw';s.style.animationDuration=(5+Math.random()*5)+'s';s.style.fontSize=(15+Math.random()*16)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),10000);}}
+</script>
+</body>
+</html>
